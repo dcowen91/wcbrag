@@ -1,3 +1,11 @@
 .jumbotron p {
-margin-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+/*.jumbotron {
+	overflow: scroll;
+}*/
+
+#brand {
+	cursor: default;
 }
