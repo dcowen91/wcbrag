@@ -75,8 +75,29 @@ function displayAbout() {
 
 function displayPlayers() {
 	$('#main').html("");
-	$.each(players, function(i, val) {
-		$('#main').append("<div class='row panel panel-default'> <div class='panel-body'><div class='col-md-4'> <p>" +val.Player + "</p></div> <div class='col-md-4'><p>" + val.Club + "</p></div> <div class='col-md-3'><p>" + val.Country + "</p></div> <div class='col-md-1'><p>" + val.Goals + "</p></div> </div> </div>");
+	$.each(players, function(i, v) {
+		var str = 
+		"<div class='row panel panel-default'>" +
+		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
+		         "<div class='col-md-4 clickable'> <p>" +v.Player + "</p></div>" +
+		         "<div class='col-md-4 clickable'><p>" + v.Club + "</p></div>" +
+		         "<div class='col-md-3 clickable'><p>" + v.Country + "</p></div>" +
+		         "<div class='col-md-1 clickable'><p>" + v.Goals + "</p></div>" +
+		    "</div>";
+		str += "<div class='list-group collapse' id='coll" + i + "'>" +
+				   "<div class='list-group-item'>" +
+				        "<div class='row'>" +
+				            "<div class='col-md-4'><p>" + v.Position + "</p></div>" +
+				            "<div class='col-md-4'> <p>" + v.Age + " Years Old" + "</p></div>";
+				            // console.log(v.Domestic);
+				            var txt = v.Domestic != "FALSE" ? "Plays in a Domestic League" : "Plays in a Foreign League"; 
+				            str += "<div class='col-md-4'><p>" + txt + "</p> </div>" +
+				        "</div></div>";
+		
+
+
+		str += "</div>";
+		$('#main').append(str);
 	});
 }
 
