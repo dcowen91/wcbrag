@@ -41,6 +41,8 @@
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae arcu id odio eleifend facilisis. Praesent quis mi et erat luctus aliquam in vitae arcu. Nam sit amet convallis libero. Quisque tincidunt congue ligula eu ornare. Donec blandit arcu ut felis viverra sodales. Vivamus tincidunt ultricies justo sed aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse vehicula aliquam nibh quis blandit. Curabitur egestas sem leo, ut congue erat dapibus a. In quis vulputate ipsum. Nunc ut lobortis nulla, eu lacinia orci. Vivamus fringilla facilisis massa auctor auctor. Curabitur id fermentum enim, vel fermentum.
 		</div>
 	</div>
+	<footer>
+	</footer>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" rel="script"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" rel="script"></script>
 	<script src="app/app.js"></script>
