@@ -70,7 +70,7 @@ $('#about').click(function() {
 
 function displayAbout() {
 	$('#main').html("");
-	$('#main').append("<h1>WCBrag</h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae arcu id odio eleifend facilisis. Praesent quis mi et erat luctus aliquam in vitae arcu. Nam sit amet convallis libero. Quisque tincidunt congue ligula eu ornare. Donec blandit arcu ut felis viverra sodales. Vivamus tincidunt ultricies justo sed aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse vehicula aliquam nibh quis blandit. Curabitur egestas sem leo, ut congue erat dapibus a. In quis vulputate ipsum. Nunc ut lobortis nulla, eu lacinia orci. Vivamus fringilla facilisis massa auctor auctor. Curabitur id fermentum enim, vel fermentum.");
+	$('#main').append("<h1>World Cup Brag</h1><p>Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats app! Navigate using the tabs above, and then click on players/teams to expand for more information!</p>");
 }
 
 

@@ -36,14 +36,20 @@
 	<div class="container">
 		<div id = 'main' class='jumbotron'>
 			<h1>
-				WCBrag
+				World Cup Brag
 			</h1>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae arcu id odio eleifend facilisis. Praesent quis mi et erat luctus aliquam in vitae arcu. Nam sit amet convallis libero. Quisque tincidunt congue ligula eu ornare. Donec blandit arcu ut felis viverra sodales. Vivamus tincidunt ultricies justo sed aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse vehicula aliquam nibh quis blandit. Curabitur egestas sem leo, ut congue erat dapibus a. In quis vulputate ipsum. Nunc ut lobortis nulla, eu lacinia orci. Vivamus fringilla facilisis massa auctor auctor. Curabitur id fermentum enim, vel fermentum.
+			<p>
+				Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats app! Navigate using the tabs above, and then click on players/teams to expand for more information!
+			</p>
 		</div>
 	</div>
 	<footer>
-		<div class='container'>
-			<small> last updated after game #29</small>
+		<div class='container' id='foot'>
+			<p><small> Last updated after Game #29</small></p>
+			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height'> The Guardian</a></small></p>
+			<p><small> Created by Drew Owen</small></p>
+			<p><small> View on <a href='https://github.com/dcowen91/wcbrag'> Github</a></small></p>
+			
 		</div>
 	</footer>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" rel="script"></script>
