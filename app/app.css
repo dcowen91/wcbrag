@@ -17,3 +17,34 @@
 .list-group-item {
 	padding: 10px 25px;
 }
+.legend {
+	margin-top: -25px;
+}
+
+/*.Netherlands {
+	background-color: #FF4F00; 
+}
+
+.France {
+	background-color: #0072BB;
+}
+
+.Germany {
+	color: white;
+	background-color: black;
+}
+
+.Chile {
+	background-color: rgb(213,43,30);
+}
+
+.Colombia {
+	background-color: #FCD116;
+}
+
+.Croatia {
+	background-color: #eee;
+background-image: linear-gradient(45deg, red 25%, transparent 25%, transparent 75%, red 75%, red), 
+linear-gradient(-45deg, red 25%, transparent 25%, transparent 75%, red 75%, red);
+background-size:60px 60px;
+}*/

@@ -2,6 +2,7 @@ var players;
 var headings;
 $(document).ready(function () {
 	console.log("ready");
+	window.location.hash = "";
 	loadCSV();
 
 });
@@ -75,9 +76,17 @@ function displayAbout() {
 
 function displayPlayers() {
 	$('#main').html("");
+	$('#main').append("<div class='row well legend'>" +
+		    "<div >" +
+		         "<div class='col-md-4 '> <p>" +"Name" + "</p></div>" +
+		         "<div class='col-md-4 '><p>" + "Club" + "</p></div>" +
+		         "<div class='col-md-3 '><p>" + "Country" + "</p></div>" +
+		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
+		    "</div>");
 	$.each(players, function(i, v) {
+		var V = v.Country.replace(/\s+/g, '');
 		var str = 
-		"<div class='row panel panel-default'>" +
+		"<div class='row panel panel-default " + V + "'>" +
 		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
 		         "<div class='col-md-4 clickable'> <p>" +v.Player + "</p></div>" +
 		         "<div class='col-md-4 clickable'><p>" + v.Club + "</p></div>" +
@@ -103,6 +112,13 @@ function displayPlayers() {
 
 function displayTeams() {
 	$('#main').html("");
+	$('#main').append(
+		"<div class='row well legend'>" +
+		    "<div >" +
+		         "<div class='col-md-11 '> <p>" + "Club" + "</p></div>" +
+		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
+		    "</div>"
+		);
 	var teams = {};
 	$.each(players, function(i, v) { 
 		if (!teams[v.Club]) {
@@ -136,6 +152,13 @@ function displayTeams() {
 
 function displayLeagues() {
 	$('#main').html("");
+	$('#main').append(
+		"<div class='row well legend'>" +
+		    "<div >" +
+		         "<div class='col-md-11 '> <p>" + "League" + "</p></div>" +
+		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
+		    "</div>"
+		);
 	var leagues = {};
 	$.each(players, function(i, v) { 
 		if (!leagues[v.League]) {
@@ -176,6 +199,13 @@ function displayLeagues() {
 
 function displayCountries() {
 	$('#main').html("");
+	$('#main').append(
+		"<div class='row well legend'>" +
+		    "<div >" +
+		         "<div class='col-md-11 '> <p>" + "National Team" + "</p></div>" +
+		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
+		    "</div>"
+		);
 	var countries = {};
 	$.each(players, function(i, v) { 
 		if (!countries[v.Country]) {
@@ -185,9 +215,10 @@ function displayCountries() {
 	});
 	countrySorted = Object.keys(countries).sort(function(a,b){return countries[b]-countries[a]});
 	$.each(countrySorted, function(i, v) {
+		V = v.replace(/\s+/g, '');
 		var str = 
 		"<div class='row panel panel-default'>" +
-		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i +"'	>" +
+		    "<div class='panel-body "+ V +"' data-toggle='collapse' data-target='#coll" + i +"'	>" +
 		        "<div class='col-md-11 clickable'><p>" + v + "</p></div> " +
 		        "<div class='col-md-1 clickable'><p>" + countries[v] + "</p></div>" +
 		    "</div>" + 

@@ -42,6 +42,9 @@
 		</div>
 	</div>
 	<footer>
+		<div class='container'>
+			<small> last updated after game #29</small>
+		</div>
 	</footer>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" rel="script"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" rel="script"></script>
