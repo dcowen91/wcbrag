@@ -9,3 +9,11 @@
 #brand {
 	cursor: default;
 }
+
+.clickable {
+	cursor: pointer;
+}
+
+.list-group-item {
+	padding: 10px 25px;
+}

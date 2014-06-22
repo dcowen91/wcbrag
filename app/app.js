@@ -76,7 +76,7 @@ function displayAbout() {
 function displayPlayers() {
 	$('#main').html("");
 	$.each(players, function(i, val) {
-		$('#main').append("<div class='row panel panel-default'> <div class='panel-body'><div class='col-md-3'> <p>" +val.Player + "</p></div> <div class='col-md-3'><p>" + val.Club + "</p></div> <div class='col-md-3'><p>" + val.Country + "</p></div> <div class='col-md-3'><p>" + val.Goals + "</p></div> </div> </div>");
+		$('#main').append("<div class='row panel panel-default'> <div class='panel-body'><div class='col-md-4'> <p>" +val.Player + "</p></div> <div class='col-md-4'><p>" + val.Club + "</p></div> <div class='col-md-3'><p>" + val.Country + "</p></div> <div class='col-md-1'><p>" + val.Goals + "</p></div> </div> </div>");
 	});
 }
 
@@ -90,13 +90,12 @@ function displayTeams() {
 		teams[v.Club] += parseInt(v.Goals);
 	});
 	teamSorted = Object.keys(teams).sort(function(a,b){return teams[b]-teams[a]});
-	var i = 0;
 	$.each(teamSorted, function(i, v) {
 		var str =
 			"<div class='row panel panel-default'>" +
 			    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
-			        "<div class='col-md-11'> <p>" + v + "</p> </div>" + 
-			        "<div class='col-md-1'><p>" + teams[v] + "</p></div>" + 
+			        "<div class='col-md-11 clickable'> <p>" + v + "</p> </div>" + 
+			        "<div class='col-md-1 clickable'><p>" + teams[v] + "</p></div>" + 
 			    "</div>" + 
 			    "<div class='list-group collapse' id='coll" + i + "'>";
 		var TeamMembers = $.grep(players, function(e) { return e.Club === v});
@@ -125,7 +124,32 @@ function displayLeagues() {
 	});
 	leagueSorted = Object.keys(leagues).sort(function(a,b){return leagues[b]-leagues[a]});
 	$.each(leagueSorted, function(i, v) {
-		$('#main').append("<div class='row panel panel-default'> <div class='panel-body'><div class='col-md-11'> <p>" + v + "</p></div> <div class='col-md-1'><p>" + leagues[v] + "</p></div> </div> </div>");
+		var str = 
+		"<div class='row panel panel-default'>" +
+		    "<div class='panel-body'  data-toggle='collapse' data-target='#coll" + i + "'> " +
+		        "<div class='col-md-11 clickable'><p>" + v + "</p></div>" +
+		        "<div class='col-md-1 clickable'><p>" + leagues[v] + "</p></div> " +
+		    "</div>" +
+		    "<div class='list-group collapse' id='coll" + i + "'>";
+		    var LPlayers = $.grep(players, function(e) { return e.League == v;});
+		    var Lteam = {};
+		    $.each(LPlayers, function(i, v) {
+		    	if (!Lteam[v.Club]) {
+		    		Lteam[v.Club] = 0;
+		    	}
+		    	Lteam[v.Club] += parseInt(v.Goals);
+		    });
+		    LteamSorted = Object.keys(Lteam).sort(function(a,b){return Lteam[b]-Lteam[a]});
+		    $.each(LteamSorted, function(Ti, Tv) {
+		    	str +=
+				   "<div class='list-group-item'>" +
+				        "<div class='row'>" +
+				            "<div class='col-md-11'> <p>" + Tv + "</p></div>" + 
+				            "<div class='col-md-1'><p>" + Lteam[Tv] + "</p></div>" +
+				        "</div></div>";
+		    });
+		str += "</div>";
+		$("#main").append(str);
 	});
 }
 
@@ -138,8 +162,26 @@ function displayCountries() {
 		}
 		countries[v.Country] += parseInt(v.Goals);
 	});
-	leagueSorted = Object.keys(countries).sort(function(a,b){return countries[b]-countries[a]});
-	$.each(leagueSorted, function(i, v) {
-		$('#main').append("<div class='row panel panel-default'> <div class='panel-body'><div class='col-md-11'> <p>" + v + "</p></div> <div class='col-md-1'><p>" + countries[v] + "</p></div> </div> </div>");
+	countrySorted = Object.keys(countries).sort(function(a,b){return countries[b]-countries[a]});
+	$.each(countrySorted, function(i, v) {
+		var str = 
+		"<div class='row panel panel-default'>" +
+		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i +"'	>" +
+		        "<div class='col-md-11 clickable'><p>" + v + "</p></div> " +
+		        "<div class='col-md-1 clickable'><p>" + countries[v] + "</p></div>" +
+		    "</div>" + 
+		    "<div class='list-group collapse' id='coll" + i + "'>";
+		var NTeamMembers = $.grep(players, function(e) { return e.Country === v});
+		$.each(NTeamMembers, function(Ti, Tv) {
+			str +=
+				   "<div class='list-group-item'>" +
+				        "<div class='row'>" +
+				            "<div class='col-md-6'> <p>" + Tv.Player + "</p></div>" + 
+				            "<div class='col-md-5'><p>" + Tv.Club + "</p></div>" +
+				            "<div class='col-md-1'><p>" + Tv.Goals + "</p> </div> "+
+				        "</div></div>";
+		});
+		str += "</div>";
+		$("#main").append(str);
 	});
 }
