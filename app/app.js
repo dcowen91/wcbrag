@@ -3,8 +3,8 @@ var headings;
 $(document).ready(function () {
 	console.log("ready");
 	window.location.hash = "";
+	$("#filtercontrol").hide();
 	loadCSV();
-
 });
 
 function loadCSV() {
@@ -28,6 +28,13 @@ function processCSV(allText) {
 		var line = value.split(",");
 		var player = {};
 		$.each(headings, function(Hi, Hv) {
+			if (Hv == "Player") {
+				var temp = [];
+				$.each(line[Hi].split(" "), function(i, v) {
+					temp.push(v.charAt(0).toUpperCase() + v.slice(1).toLowerCase());
+				});
+				line[Hi] = temp.join(" ");
+			}
 			player[Hv] = line[Hi];  //populate object with KV pairings from csv
 		})
 		Tplayers.push(player);
@@ -42,35 +49,40 @@ $('#teams').click(function() {
 	$('li').removeClass('active');
 	$('#teams').parent().addClass('active');
 	displayTeams();
+	$("#filtercontrol").show();
 });
 
 $('#players').click(function() {
 	$('li').removeClass('active');
 	$('#players').parent().addClass('active');
 	displayPlayers();
+	$("#filtercontrol").show();
 });
 
 $('#leagues').click(function() {
 	$('li').removeClass('active');
 	$('#leagues').parent().addClass('active');
 	displayLeagues();
+	$("#filtercontrol").show();
 });
 
 $('#countries').click(function() {
 	$('li').removeClass('active');
 	$('#countries').parent().addClass('active');
 	displayCountries();
+	$("#filtercontrol").show();
 });
 
 $('#about').click(function() {
 	$('li').removeClass('active');
 	$('#about').parent().addClass('active');
 	displayAbout();
+	$("#filtercontrol").hide();
 });
 
 function displayAbout() {
 	$('#main').html("");
-	$('#main').append("<h1>World Cup Brag</h1><p>Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats app! Navigate using the tabs above, and then click on players/teams to expand for more information!</p>");
+	$('#main').append("<h1>World Cup Brag</h1><p>Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!</p>");
 }
 
 
@@ -99,7 +111,7 @@ function displayPlayers() {
 				            "<div class='col-md-4'><p>" + v.Position + "</p></div>" +
 				            "<div class='col-md-4'> <p>" + v.Age + " Years Old" + "</p></div>";
 				            // console.log(v.Domestic);
-				            var txt = v.Domestic != "FALSE" ? "Plays in a Domestic League" : "Plays in a Foreign League"; 
+				            var txt = v.Domestic != "FALSE" ? "Plays in Home Country" : "Plays outside Home Country"; 
 				            str += "<div class='col-md-4'><p>" + txt + "</p> </div>" +
 				        "</div></div>";
 		

@@ -1,7 +1,6 @@
 .jumbotron p {
 	margin-bottom: 0px;
 }
-
 /*.jumbotron {
 	overflow: scroll;
 }*/
@@ -24,6 +23,12 @@
 #foot {
 	text-align: center;
 }
+
+
+#fil/*tercontrol {
+	margin-bottom: 15px;
+	width: 100%;
+}*/
 
 /*.Netherlands {
 	background-color: #FF4F00; 
