@@ -80,6 +80,14 @@ $('#about').click(function() {
 	$("#filtercontrol").hide();
 });
 
+function getName(name) {
+	var spaceIndex = name.indexOf(" ");
+	if (spaceIndex == -1)
+		return name;
+	return name.substr(spaceIndex + 1);
+
+}
+
 function displayAbout() {
 	$('#main').html("");
 	$('#main').append("<h1>World Cup Brag</h1><p>Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!</p>");
@@ -90,12 +98,32 @@ function displayPlayers() {
 	$('#main').html("");
 	$('#main').append("<div class='row well legend'>" +
 		    "<div >" +
-		         "<div class='col-md-4 '> <p>" +"Name" + "</p></div>" +
-		         "<div class='col-md-4 '><p>" + "Club" + "</p></div>" +
-		         "<div class='col-md-3 '><p>" + "Country" + "</p></div>" +
-		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
+		         "<div class='col-md-4'><p>" +"Name" + "</p></div>" +
+		         "<div class='col-md-4'><p>" + "Club" + "</p></div>" +
+		         "<div class='col-md-3'><p>" + "Country" + "</p></div>" +
+		         "<div class='col-md-1'><p>" + "Goals" + "</p></div>" +
 		    "</div>");
-	console.log(players);
+	// console.log(players);
+	// var PlayerSorted = players.slice();
+	// console.log(players);
+	var names = [];
+	$.each(players, function(i, v) { names.push(v.Player);});
+	
+
+	names.sort(function(a,b) {
+		var bName = getName(b);
+		var aName = getName(a);
+		if (bName < aName) 
+			return 1; 
+		else if (bName > aName) 
+			return -1; 
+		else return 0;
+	});
+	players.sort(function(a, b) {
+		if (a.Goals != b.Goals)
+			return b.Goals - a.Goals;
+		return names.indexOf(a.Player) - names.indexOf(b.Player);
+	})
 	$.each(players, function(i, v) {
 		var V = v.Country.replace(/\s+/g, '');
 		var str = 
