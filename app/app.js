@@ -95,6 +95,7 @@ function displayPlayers() {
 		         "<div class='col-md-3 '><p>" + "Country" + "</p></div>" +
 		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
 		    "</div>");
+	console.log(players);
 	$.each(players, function(i, v) {
 		var V = v.Country.replace(/\s+/g, '');
 		var str = 
@@ -230,7 +231,16 @@ function displayCountries() {
 		}
 		countries[v.Country] += parseInt(v.Goals);
 	});
-	countrySorted = Object.keys(countries).sort(function(a,b){return countries[b]-countries[a]});
+
+	//making sure sort is in-place
+	var countrySorted = Object.keys(countries).sort(); //sort alphabetically
+	var countryNameSortedCopy = countrySorted.slice(); //Copy array so we have a reference
+	countrySorted.sort(function(a,b){
+		if (countries[b]!=countries[a])
+			return countries[b]-countries[a]; //sort by position
+		return countryNameSortedCopy.indexOf(a) - countryNameSortedCopy.indexOf(b); // sort by existing order (alphabetically)
+	});
+
 	$.each(countrySorted, function(i, v) {
 		var V = v.replace(/\s+/g, '');
 		var str = 
