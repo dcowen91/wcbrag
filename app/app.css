@@ -25,35 +25,232 @@
 }
 
 
-#fil/*tercontrol {
+/*#filtercontrol {
 	margin-bottom: 15px;
 	width: 100%;
 }*/
 
-/*.Netherlands {
-	background-color: #FF4F00; 
+
+.Netherlands {
+	background: url('banner.png') 0 -315px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
 }
 
 .France {
-	background-color: #0072BB;
+	background: url('banner.png') 0 -567px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
 }
 
 .Germany {
-	color: white;
-	background-color: black;
+	background: url('banner.png') 0 -169px;
+	margin: 6px 0px;
+	width: 30px;
+	height: 18px;
 }
 
 .Chile {
-	background-color: rgb(213,43,30);
+	background: url('banner.png') 0 -85px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 19px;
 }
 
 .Colombia {
-	background-color: #FCD116;
+	background: url('banner.png') 0 -0;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
 }
 
 .Croatia {
-	background-color: #eee;
-background-image: linear-gradient(45deg, red 25%, transparent 25%, transparent 75%, red 75%, red), 
-linear-gradient(-45deg, red 25%, transparent 25%, transparent 75%, red 75%, red);
-background-size:60px 60px;
-}*/
+	background: url('banner.png') 0 -588px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Ecuador {
+	background: url('banner.png') 0 -252px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Brazil {
+	background: url('banner.png') 0 -630px;
+	margin: 5px 0px;
+	width: 29px;
+	height: 20px;
+}
+
+.Uruguay {
+	background: url('banner.png') 0 -107px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 19px;
+}
+
+.SouthKorea {
+	background: url('banner.png') 0 -22px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Japan {
+	background: url('banner.png') 0 -43px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Bosnia\&Herzegovina {
+	background: url('banner.png') 0 -63px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Greece {
+	background: url('banner.png') 0 -126px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Russia {
+	background: url('banner.png') 0 -148px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 19px;
+}
+
+.Australia {
+	background: url('banner.png') 0 -652px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 19px;
+}
+
+.Honduras {
+	background: url('banner.png') 0 -189px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Iran {
+	background: url('banner.png') 0 -210px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.CostaRica {
+	background: url('banner.png') 0 -232px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 19px;
+}
+
+.England {
+	background: url('banner.png') -1px -274px;
+	margin: 6px 1px;
+	width: 28px;
+	height: 18px;
+}
+
+.Switzerland {
+	background: url('banner.png') 0 -294px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Mexico {
+	background: url('banner.png') 0 -336px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Ghana {
+	background: url('banner.png') 0 -357px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Nigeria {
+	background: url('banner.png') 0 -378px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Algeria {
+	background: url('banner.png') 0 -400px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 19px;
+}
+
+.Italy {
+	background: url('banner.png') 0 -420px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.USA {
+	background: url('banner.png') 0 -609px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Cameroon {
+	background: url('banner.png') 0 -546px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Argentina {
+	background: url('banner.png') 0 -525px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Belgium {
+	background: url('banner.png') 0 -504px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.IvoryCoast {
+	background: url('banner.png') 0 -483px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Portugal {
+	background: url('banner.png') 0 -462px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Spain {
+	background: url('banner.png') 0 -441px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}

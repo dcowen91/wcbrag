@@ -98,9 +98,10 @@ function displayPlayers() {
 	$.each(players, function(i, v) {
 		var V = v.Country.replace(/\s+/g, '');
 		var str = 
-		"<div class='row panel panel-default " + V + "'>" +
+		"<div class='row panel panel-default'>" +
 		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
-		         "<div class='col-md-4 clickable'> <p>" +v.Player + "</p></div>" +
+		    	"<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
+		         "<div class='col-md-3 clickable'><p>" +v.Player + "</p></div>" +
 		         "<div class='col-md-4 clickable'><p>" + v.Club + "</p></div>" +
 		         "<div class='col-md-3 clickable'><p>" + v.Country + "</p></div>" +
 		         "<div class='col-md-1 clickable'><p>" + v.Goals + "</p></div>" +
@@ -108,11 +109,11 @@ function displayPlayers() {
 		str += "<div class='list-group collapse' id='coll" + i + "'>" +
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				            "<div class='col-md-4'><p>" + v.Position + "</p></div>" +
+				            "<div class='col-md-3 col-md-offset-1'><p>" + v.Position + "</p></div>" +
 				            "<div class='col-md-4'> <p>" + v.Age + " Years Old" + "</p></div>";
 				            // console.log(v.Domestic);
-				            var txt = v.Domestic != "FALSE" ? "Plays in Home Country" : "Plays outside Home Country"; 
-				            str += "<div class='col-md-4'><p>" + txt + "</p> </div>" +
+				            var txt = v.Domestic != "FALSE" ? "Plays in Home Country" : "Plays Abroad"; 
+				            str += "<div class='col-md-3'><p>" + txt + "</p> </div>" +
 				        "</div></div>";
 		
 
@@ -149,10 +150,12 @@ function displayTeams() {
 			    "<div class='list-group collapse' id='coll" + i + "'>";
 		var TeamMembers = $.grep(players, function(e) { return e.Club === v});
 		$.each(TeamMembers, function(Ti, Tv) {
+			var V = Tv.Country.replace(/\s+/g, '');
 			str +=
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				            "<div class='col-md-6'> <p>" + Tv.Player + "</p></div>" + 
+				        	"<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
+				            "<div class='col-md-5'> <p>" + Tv.Player + "</p></div>" + 
 				            "<div class='col-md-5'><p>" + Tv.Country + "</p></div>" +
 				            "<div class='col-md-1'><p>" + Tv.Goals + "</p> </div> "+
 				        "</div></div>";
@@ -167,7 +170,7 @@ function displayLeagues() {
 	$('#main').append(
 		"<div class='row well legend'>" +
 		    "<div >" +
-		         "<div class='col-md-11 '> <p>" + "League" + "</p></div>" +
+		         "<div class='col-md-11 '> <p>" + "League System" + "</p></div>" +
 		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
 		    "</div>"
 		);
@@ -180,10 +183,12 @@ function displayLeagues() {
 	});
 	leagueSorted = Object.keys(leagues).sort(function(a,b){return leagues[b]-leagues[a]});
 	$.each(leagueSorted, function(i, v) {
+		var V = v.replace(/\s+/g, '');
 		var str = 
 		"<div class='row panel panel-default'>" +
 		    "<div class='panel-body'  data-toggle='collapse' data-target='#coll" + i + "'> " +
-		        "<div class='col-md-11 clickable'><p>" + v + "</p></div>" +
+		    "<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
+		        "<div class='col-md-10 clickable'><p>" + v + "</p></div>" +
 		        "<div class='col-md-1 clickable'><p>" + leagues[v] + "</p></div> " +
 		    "</div>" +
 		    "<div class='list-group collapse' id='coll" + i + "'>";
@@ -227,11 +232,12 @@ function displayCountries() {
 	});
 	countrySorted = Object.keys(countries).sort(function(a,b){return countries[b]-countries[a]});
 	$.each(countrySorted, function(i, v) {
-		V = v.replace(/\s+/g, '');
+		var V = v.replace(/\s+/g, '');
 		var str = 
 		"<div class='row panel panel-default'>" +
-		    "<div class='panel-body "+ V +"' data-toggle='collapse' data-target='#coll" + i +"'	>" +
-		        "<div class='col-md-11 clickable'><p>" + v + "</p></div> " +
+		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i +"'	>" +
+		    "<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
+		        "<div class='col-md-10 clickable'><p>" + v + "</p></div> " +
 		        "<div class='col-md-1 clickable'><p>" + countries[v] + "</p></div>" +
 		    "</div>" + 
 		    "<div class='list-group collapse' id='coll" + i + "'>";

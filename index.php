@@ -36,24 +36,44 @@
 	<div class="container ">
 		<div id='filtercontrol' class="panel panel-default" hidden>
 			<div class="panel-heading" data-toggle='collapse' data-target='#filters'>
-				<h4 class="clickable text-center clickable"> Filters </h4>
+				<h4 class="clickable text-center"> Filters </h4>
 			</div>
-			<div id="filters" class=" panel-collapse collapse">
-				<div class="panel-info">
+			<div id="filters" class="panel-collapse collapse">
+				<div class="panel-body">
 					<div class="btn-group btn-group-justified">
 						<div class="btn-group">
-							<button type='button' class='btn btn-default'><h4>Position</h4></button>
+							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#pstnfilter'><h4>Position</h4></button>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-default'><h4>Age</h4></button>
+							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#agefilter'><h4>Age</h4></button>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-default'><h4>League</h4></button>
+							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#leagfilter'><h4>League</h4></button>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-default'><h4>Plays in Home Country</h4></button>
+							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#abrdfilter'><h4>Plays in Home Country</h4></button>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div id="pstnfilter" class="panel-collapse collapse">
+				<div class="panel-body">
+					<button type='button' class='btn btn-default'><h4>Age</h4></button>
+				</div>
+			</div>
+			<div id="agefilter" class="panel-collapse collapse">
+				<div class="panel-body">
+					derp
+				</div>
+			</div>
+			<div id="leagfilter" class="panel-collapse collapse">
+				<div class="panel-body">
+					derp
+				</div>
+			</div>
+			<div id="abrdfilter" class="panel-collapse collapse">
+				<div class="panel-body">
+					derp
 				</div>
 			</div>	
 		</div> 
@@ -70,7 +90,7 @@
 	</div>
 	<footer>
 		<div class='container' id='foot'>
-			<p><small> Last updated after Game #32 6/22</small></p>
+			<p><small> Last updated after Game #40 6/24</small></p>
 			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height'> The Guardian</a></small></p>
 			<p><small> Created by Drew Owen</small></p>
 			<p><small> View on <a href='https://github.com/dcowen91/wcbrag'> Github</a></small></p>
