@@ -254,3 +254,34 @@
 	width: 30px;
 	height: 20px;
 }
+
+.UnitedArabEmirates {
+	background: url('banner2.png') 0 -21px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+}
+
+.Scotland {
+	background: url('banner2.png') 0 0;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+
+}
+
+.Tunisia {
+	background: url('banner2.png') 0 -42px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+
+}
+
+.Turkey {
+	background: url('banner2.png') 0 -63px;
+	margin: 5px 0px;
+	width: 30px;
+	height: 20px;
+
+}

@@ -43,6 +43,26 @@ function processCSV(allText) {
 		return e.Goals > 0;
 	});
 
+	var names = [];
+	$.each(players, function(i, v) { names.push(v.Player);});
+	
+
+	names.sort(function(a,b) { //alphabetical sort
+		var bName = getName(b);
+		var aName = getName(a);
+		if (bName < aName) 
+			return 1; 
+		else if (bName > aName) 
+			return -1; 
+		else return 0;
+	});
+	players.sort(function(a, b) {
+		if (a.Goals != b.Goals)
+			return b.Goals - a.Goals; //sort by goals desc
+		return names.indexOf(a.Player) - names.indexOf(b.Player); //sort by previous alphabetical sort
+	})
+
+
 }
 
 $('#teams').click(function() {
@@ -106,25 +126,7 @@ function displayPlayers() {
 	// console.log(players);
 	// var PlayerSorted = players.slice();
 	// console.log(players);
-	var names = [];
-	$.each(players, function(i, v) { names.push(v.Player);});
-	
-
-	names.sort(function(a,b) {
-		var bName = getName(b);
-		var aName = getName(a);
-		if (bName < aName) 
-			return 1; 
-		else if (bName > aName) 
-			return -1; 
-		else return 0;
-	});
-	players.sort(function(a, b) {
-		if (a.Goals != b.Goals)
-			return b.Goals - a.Goals;
-		return names.indexOf(a.Player) - names.indexOf(b.Player);
-	})
-	$.each(players, function(i, v) {
+		$.each(players, function(i, v) {
 		var V = v.Country.replace(/\s+/g, '');
 		var str = 
 		"<div class='row panel panel-default'>" +
@@ -168,7 +170,13 @@ function displayTeams() {
 		}
 		teams[v.Club] += parseInt(v.Goals);
 	});
-	teamSorted = Object.keys(teams).sort(function(a,b){return teams[b]-teams[a]});
+	teamNameSorted = Object.keys(teams).sort();  //alphabetical sort
+	console.log(teamNameSorted);
+	teamSorted = Object.keys(teams).sort(function(a,b){
+		if (teams[b] != teams[a])
+			return teams[b]-teams[a];
+		return teamNameSorted.indexOf(a) - teamNameSorted.indexOf(b);  //defer to alpha ordering if tied on goals
+	});
 	$.each(teamSorted, function(i, v) {
 		var str =
 			"<div class='row panel panel-default'>" +
@@ -210,7 +218,13 @@ function displayLeagues() {
 		}
 		leagues[v.League] += parseInt(v.Goals);
 	});
-	leagueSorted = Object.keys(leagues).sort(function(a,b){return leagues[b]-leagues[a]});
+	leagueNameSorted = Object.keys(leagues).sort();
+	console.log(leagueNameSorted);
+	leagueSorted = Object.keys(leagues).sort(function(a,b){
+		if (leagues[b] != leagues[a])
+			return leagues[b]-leagues[a];
+		return leagueNameSorted.indexOf(a) - leagueNameSorted.indexOf(b);
+	});
 	$.each(leagueSorted, function(i, v) {
 		var V = v.replace(/\s+/g, '');
 		var str = 
@@ -262,11 +276,11 @@ function displayCountries() {
 
 	//making sure sort is in-place
 	var countrySorted = Object.keys(countries).sort(); //sort alphabetically
-	var countryNameSortedCopy = countrySorted.slice(); //Copy array so we have a reference
+	var countryNameSorted = countrySorted.slice(); //Copy array so we have a reference
 	countrySorted.sort(function(a,b){
 		if (countries[b]!=countries[a])
 			return countries[b]-countries[a]; //sort by position
-		return countryNameSortedCopy.indexOf(a) - countryNameSortedCopy.indexOf(b); // sort by existing order (alphabetically)
+		return countryNameSorted.indexOf(a) - countryNameSorted.indexOf(b); // sort by existing order (alphabetically)
 	});
 
 	$.each(countrySorted, function(i, v) {
