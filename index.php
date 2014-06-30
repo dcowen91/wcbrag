@@ -4,7 +4,7 @@
 	<title>WCBrag</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="WCBrag: compare leagues' and teams' performances at the World Cup!">
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="app/bootstrap.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="app/app.css">
 </head>
@@ -18,7 +18,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" id='brand'>WCBrag</a>
+				<a class="navbar-brand active"  href="#/about" id='about'>WCBrag</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
@@ -27,14 +27,11 @@
 					<li><a href="#/leagues" id='leagues'>Leagues</a></li>
 					<li><a href="#/countries" id='countries'>Countries</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="#/about" id='about'>About</a></li>
-				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container -->
 	</nav>
 	<div class="container ">
-		<div id='filtercontrol' class="panel panel-default" hidden>
+		<div id='filtercontrol' class="panel panel-primary" hidden>
 			<div class="panel-heading" data-toggle='collapse' data-target='#filters'>
 				<h4 class="clickable text-center"> Filters </h4>
 			</div>
@@ -42,38 +39,59 @@
 				<div class="panel-body">
 					<div class="btn-group btn-group-justified">
 						<div class="btn-group">
-							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#pstnfilter'><h4>Position</h4></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Position <span class="caret"></span></h4></button>
+								<ul class="dropdown-menu" role="menu">
+									<li>
+										<a><label for="POSfilter" class='clickable POSfilter' id='POSall'>
+											<input type="radio" name="POSfilter" id='POSall_radio' checked> All
+										</label></a>
+									</li>
+								    <li>
+								    	<a><label for="POSfilter" class="clickable POSfilter" id='POSfwd'>
+								    		<input type="radio" name="POSfilter" id='POSfwd_radio'> Forward
+								    	</label></a>
+								    </li>
+								    <li>
+								    	<a><label for="POSfilter" class="clickable POSfilter" id='POSmid'>
+								    		<input  type="radio" name="POSfilter" id='POSmid_radio'> Midfielder
+								    	</label></a>
+								    </li>
+								    <li>
+								    	<a><label for="POSfilter" class="clickable POSfilter" id='POSdef'>
+								    		<input type="radio" name="POSfilter" id='POSdef_radio'> Defender
+								    	</label></a>
+								    </li>
+								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#agefilter'><h4>Age</h4></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Age <span class="caret"></span></h4></button>
+							<ul class="dropdown-menu" role="menu">
+									<li>
+										<a class='clickable AGEfilter' id='AGEreset' ><label>Reset</label></a>
+									</li>
+								    <li>
+								    	<a><label for="AGEfilter" class="clickable AGEfilter" id='AGEmin'>
+								    		<input type="number" name="AGEfilter" id='AGEmin_picker' value='19' min='19' max='37'> Min
+								    	</label></a>
+								    </li>
+								    <li>
+								    	<a><label for="AGEfilter" class="clickable AGEfilter" id='AGEmax'>
+								    		<input  type="number" name="AGEfilter" id='AGEmax_picker' value='37' min='19' max='37'> Max
+								    	</label></a>
+								    </li>
+								    <li>
+										<a class='clickable AGEfilter' id='AGEapply' ><label>Apply</label></a>
+									</li>
+								    
+								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#leagfilter'><h4>League</h4></button>
+							<button type='button' class='btn btn-primary'><h4>League</h4></button>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-default' data-parent="#filters" data-toggle='collapse' data-target='#abrdfilter'><h4>Plays in Home Country</h4></button>
+							<button type='button' class='btn btn-primary'><h4>Plays in Home Country</h4></button>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div id="pstnfilter" class="panel-collapse collapse">
-				<div class="panel-body">
-					<button type='button' class='btn btn-default'><h4>Age</h4></button>
-				</div>
-			</div>
-			<div id="agefilter" class="panel-collapse collapse">
-				<div class="panel-body">
-					derp
-				</div>
-			</div>
-			<div id="leagfilter" class="panel-collapse collapse">
-				<div class="panel-body">
-					derp
-				</div>
-			</div>
-			<div id="abrdfilter" class="panel-collapse collapse">
-				<div class="panel-body">
-					derp
 				</div>
 			</div>	
 		</div> 
@@ -90,10 +108,10 @@
 	</div>
 	<footer>
 		<div class='container' id='foot'>
-			<p><small> Last updated after Game #40 6/24</small></p>
-			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height'> The Guardian</a></small></p>
-			<p><small> Created by Drew Owen</small></p>
-			<p><small> View on <a href='https://github.com/dcowen91/wcbrag'> Github</a></small></p>
+			<p><small> Last updated after Game #52 6/29</small></p>
+			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height' target="_newtab"> The Guardian</a></small></p>
+			<p><small> Created by <a href="mailto:dcowen@email.arizona.edu" target="_newtab">Drew Owen</a></small></p>
+			<p><small> View on <a href='https://github.com/dcowen91/wcbrag' target="_newtab"> Github</a></small></p>
 			
 		</div>
 	</footer>

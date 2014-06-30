@@ -1,7 +1,12 @@
 var players;
 var headings;
+var ALLplayers;
+var latest;
+var filters;
+
 $(document).ready(function () {
-	console.log("ready");
+	filters = {};
+	filters.pos = "ALL";
 	window.location.hash = "";
 	$("#filtercontrol").hide();
 	loadCSV();
@@ -42,11 +47,9 @@ function processCSV(allText) {
 	players = $.grep(Tplayers, function(e) {
 		return e.Goals > 0;
 	});
-
 	var names = [];
 	$.each(players, function(i, v) { names.push(v.Player);});
 	
-
 	names.sort(function(a,b) { //alphabetical sort
 		var bName = getName(b);
 		var aName = getName(a);
@@ -60,10 +63,49 @@ function processCSV(allText) {
 		if (a.Goals != b.Goals)
 			return b.Goals - a.Goals; //sort by goals desc
 		return names.indexOf(a.Player) - names.indexOf(b.Player); //sort by previous alphabetical sort
-	})
+	});
 
-
+	ALLplayers = players.slice();
 }
+
+$('.POSfilter').click(function(e) {
+	if (this.id == "POSall") {
+		filters.pos = "ALL";
+	}
+	else if (this.id == "POSfwd") {
+		filters.pos = "Forward";
+	}
+	else if (this.id == "POSmid") {
+		filters.pos = "Midfielder";
+	}
+	else if (this.id == "POSdef") {
+		filters.pos = "Defender";
+	}	
+	$("#" + this.id + "_radio").prop("checked", true)
+	applyFilters();
+	e.stopPropagation();
+});
+
+$('.AGEfilter').click(function(e) {
+	console.log(this);
+	if (this.id == "AGEreset") {
+		console.log("reset");
+		filters.min = 19;
+		filters.max = 37;
+		$('#AGEmin_picker').val('19');
+		$('#AGEmax_picker').val('37');
+	}
+	applyFilters();
+	e.stopPropagation();
+});
+
+
+$('.AGEfilter').change(function(e) {
+	console.log("CHANGE");
+	applyFilters();
+	e.stopPropagation();
+})
+
 
 $('#teams').click(function() {
 	$('li').removeClass('active');
@@ -100,6 +142,19 @@ $('#about').click(function() {
 	$("#filtercontrol").hide();
 });
 
+function applyFilters() {
+	players = ALLplayers.slice();
+	
+	//pos filter
+	if (filters.pos != "ALL") {
+		players = $.grep(players, function(e) {
+			return e.Position == filters.pos;
+		});
+	}
+
+	displayLatest();
+}
+
 function getName(name) {
 	var spaceIndex = name.indexOf(" ");
 	if (spaceIndex == -1)
@@ -115,14 +170,15 @@ function displayAbout() {
 
 
 function displayPlayers() {
+	latest = "players";
 	$('#main').html("");
-	$('#main').append("<div class='row well legend'>" +
-		    "<div >" +
+	$('#main').append("<div class='row panel panel-default legend'>" +
+		    "<div class='panel-body'>" +
 		         "<div class='col-md-4'><p>" +"Name" + "</p></div>" +
 		         "<div class='col-md-4'><p>" + "Club" + "</p></div>" +
 		         "<div class='col-md-3'><p>" + "Country" + "</p></div>" +
 		         "<div class='col-md-1'><p>" + "Goals" + "</p></div>" +
-		    "</div>");
+		    "</div></div>" );
 	// console.log(players);
 	// var PlayerSorted = players.slice();
 	// console.log(players);
@@ -155,10 +211,11 @@ function displayPlayers() {
 }
 
 function displayTeams() {
+	latest = "teams";
 	$('#main').html("");
 	$('#main').append(
-		"<div class='row well legend'>" +
-		    "<div >" +
+		"<div class='row panel panel-default legend'>" +
+		    "<div class='panel-body' >" +
 		         "<div class='col-md-11 '> <p>" + "Club" + "</p></div>" +
 		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
 		    "</div>"
@@ -203,10 +260,11 @@ function displayTeams() {
 }
 
 function displayLeagues() {
+	latest = "leagues";
 	$('#main').html("");
 	$('#main').append(
-		"<div class='row well legend'>" +
-		    "<div >" +
+		"<div class='row panel panel-default legend'>" +
+		    "<div class='panel-body'>" +
 		         "<div class='col-md-11 '> <p>" + "League System" + "</p></div>" +
 		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
 		    "</div>"
@@ -258,10 +316,11 @@ function displayLeagues() {
 }
 
 function displayCountries() {
+	latest = "countries";
 	$('#main').html("");
 	$('#main').append(
-		"<div class='row well legend'>" +
-		    "<div >" +
+		"<div class='row panel panel-default legend'>" +
+		    "<div class='panel-body'>" +
 		         "<div class='col-md-11 '> <p>" + "National Team" + "</p></div>" +
 		         "<div class='col-md-1 '><p>" + "Goals" + "</p></div>" +
 		    "</div>"
@@ -306,4 +365,16 @@ function displayCountries() {
 		str += "</div>";
 		$("#main").append(str);
 	});
+}
+
+
+
+function displayLatest () {
+	if (latest == "players")
+		displayPlayers();
+	else if (latest == "teams")
+		displayTeams();
+	else if (latest == "leagues")
+		displayLeagues();
+	else displayCountries();
 }
