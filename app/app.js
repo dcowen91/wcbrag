@@ -7,6 +7,9 @@ var filters;
 $(document).ready(function () {
 	filters = {};
 	filters.pos = "ALL";
+	filters.min = 19;
+	filters.max = 37;
+	filters.lg = "ALL";
 	window.location.hash = "";
 	$("#filtercontrol").hide();
 	loadCSV();
@@ -86,6 +89,21 @@ $('.POSfilter').click(function(e) {
 	e.stopPropagation();
 });
 
+$('.LGfilter').click(function(e) {
+	if (this.id == "LGall") {
+		filters.lg = "ALL";
+	}
+	else if (this.id == "LGdom") {
+		filters.lg = "TRUE";
+	}
+	else {
+		filters.lg = "FALSE";
+	}
+	$("#" + this.id + "_radio").prop("checked", true)
+	applyFilters();
+	e.stopPropagation();
+});
+
 $('.AGEfilter').click(function(e) {
 	e.stopPropagation();
 });
@@ -159,6 +177,13 @@ function applyFilters() {
 		return e.Age >= filters.min;
 	});
 
+	//lg filter
+	if (filters.lg != "ALL") {
+		players = $.grep(players, function(e) {
+			return e.Domestic == filters.lg;
+		});
+	}
+
 	displayLatest();
 }
 
@@ -206,7 +231,7 @@ function displayPlayers() {
 				            "<div class='col-md-3 col-md-offset-1'><p>" + v.Position + "</p></div>" +
 				            "<div class='col-md-4'> <p>" + v.Age + " Years Old" + "</p></div>";
 				            // console.log(v.Domestic);
-				            var txt = v.Domestic != "FALSE" ? "Plays in Home Country" : "Plays Abroad"; 
+				            var txt = v.Domestic != "FALSE" ? "Plays Domestically" : "Plays Abroad"; 
 				            str += "<div class='col-md-3'><p>" + txt + "</p> </div>" +
 				        "</div></div>";
 		

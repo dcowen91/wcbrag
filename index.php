@@ -86,10 +86,24 @@
 								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary'><h4>League</h4></button>
-						</div>
-						<div class="btn-group">
-							<button type='button' class='btn btn-primary'><h4>Plays in Home Country</h4></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Plays Domestically? <span class="caret"></span></h4></button>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a><label for="LGfilter" class='clickable LGfilter' id='LGall'>
+										<input type="radio" name="LGfilter" id='LGall_radio'checked> All
+									</label></a>
+								</li>
+								<li>
+									<a><label for="LGfilter" class='clickable LGfilter' id='LGdom'>
+										<input type="radio" name="LGfilter" id='LGdom_radio'> Domestic
+									</label></a>
+								</li>
+								<li>
+									<a><label for="LGfilter" class='clickable LGfilter' id='LGabrd'>
+										<input type="radio" name="LGfilter" id='LGabrd_radio'> Abroad
+									</label></a>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
