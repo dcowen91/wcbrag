@@ -87,24 +87,24 @@ $('.POSfilter').click(function(e) {
 });
 
 $('.AGEfilter').click(function(e) {
-	console.log(this);
-	if (this.id == "AGEreset") {
-		console.log("reset");
-		filters.min = 19;
-		filters.max = 37;
-		$('#AGEmin_picker').val('19');
-		$('#AGEmax_picker').val('37');
-	}
-	applyFilters();
 	e.stopPropagation();
 });
 
-
-$('.AGEfilter').change(function(e) {
-	console.log("CHANGE");
+$('#AGEreset').click(function(e) {
+	console.log("reset");
+	filters.min = 19;
+	filters.max = 37;
+	$('#AGEmin_picker').val('19');
+	$('#AGEmax_picker').val('37');
 	applyFilters();
-	e.stopPropagation();
-})
+});
+
+$('#AGEapply').click(function(e) {
+	console.log("apply");
+	filters.min = $('#AGEmin_picker').val();
+	filters.max = $('#AGEmax_picker').val();
+	applyFilters();
+});
 
 
 $('#teams').click(function() {
@@ -144,13 +144,20 @@ $('#about').click(function() {
 
 function applyFilters() {
 	players = ALLplayers.slice();
-	
 	//pos filter
 	if (filters.pos != "ALL") {
 		players = $.grep(players, function(e) {
 			return e.Position == filters.pos;
 		});
 	}
+
+	//age filter
+	players = $.grep(players, function(e) {
+		return e.Age <= filters.max;
+	});
+	players = $.grep(players, function(e) {
+		return e.Age >= filters.min;
+	});
 
 	displayLatest();
 }
@@ -228,7 +235,6 @@ function displayTeams() {
 		teams[v.Club] += parseInt(v.Goals);
 	});
 	teamNameSorted = Object.keys(teams).sort();  //alphabetical sort
-	console.log(teamNameSorted);
 	teamSorted = Object.keys(teams).sort(function(a,b){
 		if (teams[b] != teams[a])
 			return teams[b]-teams[a];
@@ -277,7 +283,6 @@ function displayLeagues() {
 		leagues[v.League] += parseInt(v.Goals);
 	});
 	leagueNameSorted = Object.keys(leagues).sort();
-	console.log(leagueNameSorted);
 	leagueSorted = Object.keys(leagues).sort(function(a,b){
 		if (leagues[b] != leagues[a])
 			return leagues[b]-leagues[a];

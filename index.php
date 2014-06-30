@@ -67,7 +67,7 @@
 							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Age <span class="caret"></span></h4></button>
 							<ul class="dropdown-menu" role="menu">
 									<li>
-										<a class='clickable AGEfilter' id='AGEreset' ><label>Reset</label></a>
+										<a class='AGEfilter' id='AGEreset' ><label class='clickable'>Reset</label></a>
 									</li>
 								    <li>
 								    	<a><label for="AGEfilter" class="clickable AGEfilter" id='AGEmin'>
@@ -80,7 +80,7 @@
 								    	</label></a>
 								    </li>
 								    <li>
-										<a class='clickable AGEfilter' id='AGEapply' ><label>Apply</label></a>
+										<a class='AGEfilter' id='AGEapply' ><label class='clickable'>Apply</label></a>
 									</li>
 								    
 								</ul>
