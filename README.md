@@ -1,5 +1,5 @@
 # [World Cup Brag](http://wcbrag.herokuapp.com)
-### http://spotlistr.herokuapp.com
+### http://wcbrag.herokuapp.com
 A World Cup goal stats site
 
 ## About
@@ -12,4 +12,4 @@ A World Cup goal stats site
 * All data from [The Guardian](http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height)
 * [Bootstrap](http://getbootstrap.com/)
 * Bootstrap theme [Bootswatch Darkly](http://bootswatch.com)
-* Hosted by [Heroku](http://heroku.com)
+* Hosted by [Heroku](http://heroku.com)	

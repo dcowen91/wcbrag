@@ -114,13 +114,13 @@
 				<h2>
 					World Cup Brag
 				</h2>
-					Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!
+					Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal(excluding Own Goals) of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!
 			</div>
 		</div>
 	</div>
 	<footer>
 		<div class='container' id='foot'>
-			<p><small> Last updated after Game #54 6/30</small></p>
+			<p><small> Last updated after Game #55 7/1</small></p>
 			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height' target="_newtab"> The Guardian</a></small></p>
 			<p><small> Created by <a href="mailto:dcowen@email.arizona.edu" target="_newtab">Drew Owen</a></small></p>
 			<p><small> View on <a href='https://github.com/dcowen91/wcbrag' target="_newtab"> Github</a></small></p>

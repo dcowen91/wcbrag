@@ -197,7 +197,7 @@ function getName(name) {
 
 function displayAbout() {
 	$('#main').html("");
-	$('#main').append("<h2>World Cup Brag</h2>Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!");
+	$('#main').append("<h2>World Cup Brag</h2>Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal(excluding Own Goals) of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!");
 }
 
 
