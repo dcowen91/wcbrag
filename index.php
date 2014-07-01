@@ -120,7 +120,7 @@
 	</div>
 	<footer>
 		<div class='container' id='foot'>
-			<p><small> Last updated after Game #55 7/1</small></p>
+			<p><small> Last updated after Game #56 7/1</small></p>
 			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height' target="_newtab"> The Guardian</a></small></p>
 			<p><small> Created by <a href="mailto:dcowen@email.arizona.edu" target="_newtab">Drew Owen</a></small></p>
 			<p><small> View on <a href='https://github.com/dcowen91/wcbrag' target="_newtab"> Github</a></small></p>
