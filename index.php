@@ -33,13 +33,13 @@
 	<div class="container ">
 		<div id='filtercontrol' class="panel panel-primary" hidden>
 			<div class="panel-heading" data-toggle='collapse' data-target='#filters'>
-				<h4 class="clickable text-center"> Filters </h4>
+				<h5 class="clickable text-center"> Filters </h5>
 			</div>
 			<div id="filters" class="panel-collapse collapse">
 				<div class="panel-body">
 					<div class="btn-group btn-group-justified">
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Position <span class="caret"></span></h4></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h5>Position <span class="caret"></span></h5></button>
 								<ul class="dropdown-menu" role="menu">
 									<li>
 										<a><label for="POSfilter" class='clickable POSfilter' id='POSall'>
@@ -64,19 +64,19 @@
 								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Age <span class="caret"></span></h4></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h5>Age <span class="caret"></span></h5></button>
 							<ul class="dropdown-menu" role="menu">
 									<li>
 										<a class='AGEfilter' id='AGEreset' ><label class='clickable'>Reset</label></a>
 									</li>
 								    <li>
 								    	<a><label for="AGEfilter" class="clickable AGEfilter" id='AGEmin'>
-								    		<input type="number" name="AGEfilter" id='AGEmin_picker' value='19' min='19' max='37'> Min
+								    		<input type="number" name="AGEfilter" id='AGEmin_picker' value='19' min='19' max='36'> Min
 								    	</label></a>
 								    </li>
 								    <li>
 								    	<a><label for="AGEfilter" class="clickable AGEfilter" id='AGEmax'>
-								    		<input  type="number" name="AGEfilter" id='AGEmax_picker' value='37' min='19' max='37'> Max
+								    		<input  type="number" name="AGEfilter" id='AGEmax_picker' value='36' min='19' max='36'> Max
 								    	</label></a>
 								    </li>
 								    <li>
@@ -86,7 +86,7 @@
 								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h4>Plays Domestically? <span class="caret"></span></h4></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h5>Plays Domestically? <span class="caret"></span></h5></button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<a><label for="LGfilter" class='clickable LGfilter' id='LGall'>
@@ -111,18 +111,16 @@
 		</div> 
 		<div class='jumbotron'>
 			<div id = 'main'>
-				<h1>
+				<h2>
 					World Cup Brag
-				</h1>
-				<p>
+				</h2>
 					Which Club team has done the best in the 2014 World Cup? Which professional league has performed the best? Every single goal of the world cup is tracked in this comparative stats site! Navigate using the tabs above, and then click on players/teams to expand for more information!
-				</p>
 			</div>
 		</div>
 	</div>
 	<footer>
 		<div class='container' id='foot'>
-			<p><small> Last updated after Game #52 6/29</small></p>
+			<p><small> Last updated after Game #54 6/30</small></p>
 			<p><small> All stats via <a href='http://www.theguardian.com/football/datablog/2014/jun/06/world-cup-squads-rosters-broken-down-club-age-height' target="_newtab"> The Guardian</a></small></p>
 			<p><small> Created by <a href="mailto:dcowen@email.arizona.edu" target="_newtab">Drew Owen</a></small></p>
 			<p><small> View on <a href='https://github.com/dcowen91/wcbrag' target="_newtab"> Github</a></small></p>
