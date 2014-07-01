@@ -206,10 +206,10 @@ function displayPlayers() {
 	$('#main').html("");
 	$('#main').append("<div class='row panel panel-default legend'>" +
 		    "<div class='panel-body'>" +
-		         "<div class='col-xs-6 col-md-3 col-md-offset-1'>" + "Name" + "</div>" +
-		         "<div class='col-xs-6 col-md-3'>" + "Club" + "</div>" +
-		         "<div class='col-xs-6 col-md-4'>" + "Country" + "</div>" +
-		         "<div class='col-xs-6 col-md-1'>" + "Goals" + "</div>" +
+		         "<div class='col-xs-9 col-md-3 col-md-offset-1'>" + "Name" + "</div>" +
+		         "<div class='hidden-xs col-md-3'>" + "Club" + "</div>" +
+		         "<div class='hidden-xs col-md-4'>" + "Country" + "</div>" +
+		         "<div class='col-xs-2 col-md-1'>" + "Goals" + "</div>" +
 		    "</div></div>" );
 	// console.log(players);
 	// var PlayerSorted = players.slice();
@@ -219,20 +219,22 @@ function displayPlayers() {
 		var str = 
 		"<div class='row panel panel-default'>" +
 		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
-		    	 "<div class='col-xs-1 col-md-1 clickable'> <img class='" + V + "'> </div>" +
-		         "<div class='col-xs-3 col-md-3 clickable'>" + v.Player + "</div>" +
-		         "<div class='col-xs-3 col-md-3 clickable'>" + v.Club + "</div>" +
-		         "<div class='col-xs-4 col-md-4 clickable'>" + v.Country + "</div>" +
+		    	 "<div class='hidden-xs col-md-1 clickable'> <img class='" + V + "'> </div>" +
+		         "<div class='col-xs-9 col-md-3 clickable'>" + v.Player + "</div>" +
+		         "<div class='hidden-xs col-md-3 clickable'>" + v.Club + "</div>" +
+		         "<div class='hidden-xs col-md-4 clickable'>" + v.Country + "</div>" +
 		         "<div class='col-xs-1 col-md-1 clickable'>" + v.Goals + "</div>" +
 		    "</div>";
 		str += "<div class='list-group collapse' id='coll" + i + "'>" +
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				            "<div class='col-md-3 col-md-offset-1'>" + v.Position + "</div>" +
-				            "<div class='col-md-4'>" + v.Age + " Years Old" + "</div>";
+				        	"<div class='col-xs-7 hidden-md hidden-lg hidden-sm'>" + v.Club + "</div>" +
+				        	"<div class='col-xs-5 hidden-md hidden-lg hidden-sm'>" + v.Country + "</div>" +
+				            "<div class='col-xs-6 col-md-3 col-md-offset-1'>" + v.Position + "</div>" +
+				            "<div class='col-xs-6 col-md-3'>" + v.Age + " Years Old" + "</div>";
 				            // console.log(v.Domestic);
 				            var txt = v.Domestic != "FALSE" ? "Plays Domestically" : "Plays Abroad"; 
-				            str += "<div class='col-md-3'>" + txt + " </div>" +
+				            str += "<div class='col-xs-12 col-md-3'>" + txt + " </div>" +
 				        "</div></div>";
 		
 
