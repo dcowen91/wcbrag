@@ -33,13 +33,13 @@
 	<div class="container ">
 		<div id='filtercontrol' class="panel panel-primary" hidden>
 			<div class="panel-heading" data-toggle='collapse' data-target='#filters'>
-				<h5 class="clickable text-center"> Filters </h5>
+				<div class="clickable text-center"> Filters </div>
 			</div>
 			<div id="filters" class="panel-collapse collapse">
 				<div class="panel-body">
 					<div class="btn-group btn-group-justified">
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h5>Position <span class="caret"></span></h5></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown">Position <span class="caret"></span></button>
 								<ul class="dropdown-menu" role="menu">
 									<li>
 										<a><label for="POSfilter" class='clickable POSfilter' id='POSall'>
@@ -64,7 +64,7 @@
 								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h5>Age <span class="caret"></span></h5></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown">Age <span class="caret"></span></button>
 							<ul class="dropdown-menu" role="menu">
 									<li>
 										<a class='AGEfilter' id='AGEreset' ><label class='clickable'>Reset</label></a>
@@ -86,7 +86,7 @@
 								</ul>
 						</div>
 						<div class="btn-group">
-							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown"><h5>Plays Domestically? <span class="caret"></span></h5></button>
+							<button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown">Plays Domestically? <span class="caret"></span></button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<a><label for="LGfilter" class='clickable LGfilter' id='LGall'>

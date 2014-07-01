@@ -206,9 +206,9 @@ function displayPlayers() {
 	$('#main').html("");
 	$('#main').append("<div class='row panel panel-default legend'>" +
 		    "<div class='panel-body'>" +
-		         "<div class='col-xs-9 col-md-3 col-md-offset-1'>" + "Name" + "</div>" +
+		         "<div class='col-xs-5 col-md-3 col-md-offset-1'>" + "Name" + "</div>" +
 		         "<div class='hidden-xs col-md-3'>" + "Club" + "</div>" +
-		         "<div class='hidden-xs col-md-4'>" + "Country" + "</div>" +
+		         "<div class='col-xs-5 col-md-4'>" + "Country" + "</div>" +
 		         "<div class='col-xs-2 col-md-1'>" + "Goals" + "</div>" +
 		    "</div></div>" );
 	// console.log(players);
@@ -220,21 +220,20 @@ function displayPlayers() {
 		"<div class='row panel panel-default'>" +
 		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
 		    	 "<div class='hidden-xs col-md-1 clickable'> <img class='" + V + "'> </div>" +
-		         "<div class='col-xs-9 col-md-3 clickable'>" + v.Player + "</div>" +
+		         "<div class='col-xs-5 col-md-3 clickable'>" + v.Player + "</div>" +
 		         "<div class='hidden-xs col-md-3 clickable'>" + v.Club + "</div>" +
-		         "<div class='hidden-xs col-md-4 clickable'>" + v.Country + "</div>" +
-		         "<div class='col-xs-1 col-md-1 clickable'>" + v.Goals + "</div>" +
+		         "<div class='col-xs-5 col-md-4 clickable'>" + v.Country + "</div>" +
+		         "<div class='col-xs-2 col-md-1 clickable'>" + v.Goals + "</div>" +
 		    "</div>";
 		str += "<div class='list-group collapse' id='coll" + i + "'>" +
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				        	"<div class='col-xs-7 hidden-md hidden-lg hidden-sm'>" + v.Club + "</div>" +
-				        	"<div class='col-xs-5 hidden-md hidden-lg hidden-sm'>" + v.Country + "</div>" +
+				        	"<div class='col-xs-6 hidden-md hidden-lg hidden-sm'>" + v.Club + "</div>" +
 				            "<div class='col-xs-6 col-md-3 col-md-offset-1'>" + v.Position + "</div>" +
 				            "<div class='col-xs-6 col-md-3'>" + v.Age + " Years Old" + "</div>";
 				            // console.log(v.Domestic);
 				            var txt = v.Domestic != "FALSE" ? "Plays Domestically" : "Plays Abroad"; 
-				            str += "<div class='col-xs-12 col-md-3'>" + txt + " </div>" +
+				            str += "<div class='col-xs-6 col-md-3'>" + txt + " </div>" +
 				        "</div></div>";
 		
 
@@ -250,8 +249,8 @@ function displayTeams() {
 	$('#main').append(
 		"<div class='row panel panel-default legend'>" +
 		    "<div class='panel-body' >" +
-		         "<div class='col-md-11 '>" + "Club" + "</div>" +
-		         "<div class='col-md-1 '>" + "Goals" + "</div>" +
+		         "<div class='col-xs-10 col-md-11 '>" + "Club" + "</div>" +
+		         "<div class='col-xs-2 col-md-1 '>" + "Goals" + "</div>" +
 		    "</div>"
 		);
 	var teams = {};
@@ -271,8 +270,8 @@ function displayTeams() {
 		var str =
 			"<div class='row panel panel-default'>" +
 			    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i + "'>" +
-			        "<div class='col-md-11 clickable'>" + v + "</div>" + 
-			        "<div class='col-md-1 clickable'>" + teams[v] + "</div>" + 
+			        "<div class='col-xs-10 col-md-11 clickable'>" + v + "</div>" + 
+			        "<div class='col-xs-2 col-md-1 clickable'>" + teams[v] + "</div>" + 
 			    "</div>" + 
 			    "<div class='list-group collapse' id='coll" + i + "'>";
 		var TeamMembers = $.grep(players, function(e) { return e.Club === v});
@@ -281,10 +280,10 @@ function displayTeams() {
 			str +=
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				        	"<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
-				            "<div class='col-md-5'>" + Tv.Player + "</div>" + 
-				            "<div class='col-md-5'>" + Tv.Country + "</div>" +
-				            "<div class='col-md-1'>" + Tv.Goals + "</div> "+
+				        	"<div class='hidden-xs col-md-1 clickable'><img class='" + V + "'></div>" +
+				            "<div class='col-xs-5 col-md-5'>" + Tv.Player + "</div>" + 
+				            "<div class='col-xs-5 col-md-5'>" + Tv.Country + "</div>" +
+				            "<div class='col-xs-2 col-md-1'>" + Tv.Goals + "</div> "+
 				        "</div></div>";
 		});
 		str +='</div>';
@@ -298,8 +297,8 @@ function displayLeagues() {
 	$('#main').append(
 		"<div class='row panel panel-default legend'>" +
 		    "<div class='panel-body'>" +
-		         "<div class='col-md-11 '>" + "League System" + "</div>" +
-		         "<div class='col-md-1 '>" + "Goals" + "</div>" +
+		         "<div class='col-xs-10 col-md-10 col-md-offset-1'>" + "League System" + "</div>" +
+		         "<div class='col-xs-2 col-md-1 '>" + "Goals" + "</div>" +
 		    "</div>"
 		);
 	var leagues = {};
@@ -320,9 +319,9 @@ function displayLeagues() {
 		var str = 
 		"<div class='row panel panel-default'>" +
 		    "<div class='panel-body'  data-toggle='collapse' data-target='#coll" + i + "'> " +
-		    "<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
-		        "<div class='col-md-10 clickable'>" + v + "</div>" +
-		        "<div class='col-md-1 clickable'>" + leagues[v] + "</div> " +
+		    "<div class='hidden-xs col-md-1 clickable'><img class='" + V + "'></div>" +
+		        "<div class='col-xs-10 col-md-10 clickable'>" + v + "</div>" +
+		        "<div class='col-xs-2 col-md-1 clickable'>" + leagues[v] + "</div> " +
 		    "</div>" +
 		    "<div class='list-group collapse' id='coll" + i + "'>";
 		    var LPlayers = $.grep(players, function(e) { return e.League == v;});
@@ -338,8 +337,8 @@ function displayLeagues() {
 		    	str +=
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				            "<div class='col-md-11'>" + Tv + "</div>" + 
-				            "<div class='col-md-1'>" + Lteam[Tv] + "</div>" +
+				            "<div class='col-xs-10 col-md-11'>" + Tv + "</div>" + 
+				            "<div class='col-xs-2 col-md-1'>" + Lteam[Tv] + "</div>" +
 				        "</div></div>";
 		    });
 		str += "</div>";
@@ -353,8 +352,8 @@ function displayCountries() {
 	$('#main').append(
 		"<div class='row panel panel-default legend'>" +
 		    "<div class='panel-body'>" +
-		         "<div class='col-md-11 '>" + "National Team" + "</div>" +
-		         "<div class='col-md-1 '>" + "Goals" + "</div>" +
+		         "<div class='col-xs-10 col-md-10 col-md-offset-1 '>" + "National Team" + "</div>" +
+		         "<div class='col-xs-2 col-md-1 '>" + "Goals" + "</div>" +
 		    "</div>"
 		);
 	var countries = {};
@@ -379,9 +378,9 @@ function displayCountries() {
 		var str = 
 		"<div class='row panel panel-default'>" +
 		    "<div class='panel-body' data-toggle='collapse' data-target='#coll" + i +"'	>" +
-		    "<div class='col-md-1 clickable'><img class='" + V + "'></div>" +
-		        "<div class='col-md-10 clickable'>" + v + "</div> " +
-		        "<div class='col-md-1 clickable'>" + countries[v] + "</div>" +
+		    "<div class='hidden-xs col-md-1 clickable'><img class='" + V + "'></div>" +
+		        "<div class='col-xs-10 col-md-10 clickable'>" + v + "</div> " +
+		        "<div class='col-xs-2 col-md-1 clickable'>" + countries[v] + "</div>" +
 		    "</div>" + 
 		    "<div class='list-group collapse' id='coll" + i + "'>";
 		var NTeamMembers = $.grep(players, function(e) { return e.Country === v});
@@ -389,9 +388,9 @@ function displayCountries() {
 			str +=
 				   "<div class='list-group-item'>" +
 				        "<div class='row'>" +
-				            "<div class='col-md-6'>" + Tv.Player + "</div>" + 
-				            "<div class='col-md-5'>" + Tv.Club + "</div>" +
-				            "<div class='col-md-1'>" + Tv.Goals + "</div> "+
+				            "<div class='col-xs-5 col-md-6'>" + Tv.Player + "</div>" + 
+				            "<div class='col-xs-5 col-md-5'>" + Tv.Club + "</div>" +
+				            "<div class='col-xs-2 col-md-1'>" + Tv.Goals + "</div> "+
 				        "</div></div>";
 		});
 		str += "</div>";
